@@ -21,7 +21,7 @@ class TestHelloWorld(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-    def test_greeting_message(self):
+    def test_second_greeting_message(self):
         greeting = 'Welcome to Circleci'
         self.assertEqual(hello_world.test(), greeting)
         
