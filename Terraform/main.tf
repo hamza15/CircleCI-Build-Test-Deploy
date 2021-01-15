@@ -83,6 +83,7 @@ resource "aws_instance" "VM" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.subnet-1.id
   private_ip    = "10.0.1.12"
+  iam_instance_profile  = "AmazonSSMRoleForInstancesQuickSetup"
   vpc_security_group_ids = [aws_security_group.sg-infra.id]
   key_name      = "Docker"
   user_data = <<-EOF
