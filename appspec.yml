@@ -3,6 +3,8 @@ os: linux
 files:
   - source: /webserver/hello_world.py
     destination: /home/ubuntu/app/
+  - source: /webserver/templates
+    destination: /home/ubuntu/app/
 hooks:
   ApplicationStart:
     - location: scripts/start_server
