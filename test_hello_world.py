@@ -23,7 +23,7 @@ class TestHelloWorld(unittest.TestCase):
 
     def test_second_greeting_message(self):
         rv = self.app.get('/test')
-        self.assertIn('Welcome to Circleci', rv.decode('utf-8'))
+        self.assertIn('Welcome to Circleci', rv.data.decode('utf-8'))
         
 
 if __name__ == '__main__':
