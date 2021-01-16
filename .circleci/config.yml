@@ -36,6 +36,7 @@ jobs:
             aws s3 cp deployment.$(date +%y%m%d_%H%M).zip s3://benchsci-test/
             aws deploy create-deployment --application-name interview --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name interview --s3-location bucket=benchsci-test,key=deployment.$(date +%y%m%d_%H%M).zip,bundleType=zip
             ls
+            cd webserver
             pwd
             
 workflows:
