@@ -4,7 +4,7 @@ files:
   - source: /webserver/hello_world.py
     destination: /home/ubuntu/app/
   - source: /webserver/templates
-    destination: /home/ubuntu/app/
+    destination: /home/ubuntu/app/templates
 hooks:
   ApplicationStart:
     - location: scripts/start_server
