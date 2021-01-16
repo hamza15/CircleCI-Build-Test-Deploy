@@ -5,6 +5,17 @@ files:
     destination: /home/ubuntu/app/
   - source: /webserver/templates
     destination: /home/ubuntu/app/templates
+permissions:
+    - object: scripts/start_server
+      owner: root
+      mode: 777
+      type:
+        - file
+    - object: scripts/stop_server
+      owner: root
+      mode: 777
+      type:
+        - file
 hooks:
   ApplicationStart:
     - location: scripts/start_server
