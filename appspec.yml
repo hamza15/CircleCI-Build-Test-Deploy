@@ -6,22 +6,22 @@ files:
   - source: /webserver/templates
     destination: /home/ubuntu/app/templates
 permissions:
-    - object: scripts/start_server
+    - object: scripts/start_server.sh
       owner: root
       mode: 777
       type:
         - file
-    - object: scripts/stop_server
+    - object: scripts/stop_server.sh
       owner: root
       mode: 777
       type:
         - file
 hooks:
   ApplicationStart:
-    - location: scripts/start_server
+    - location: scripts/start_server.sh
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: scripts/stop_server
+    - location: scripts/stop_server.sh
       timeout: 300
       runas: root
