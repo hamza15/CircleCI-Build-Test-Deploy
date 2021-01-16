@@ -12,8 +12,8 @@ class TestHelloWorld(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         
     def test_greeting_message(self):
-        greeting = 'Hello, World!'
-        self.assertEqual(hello_world.helloIndex(), greeting)
+        greeting = self.app.get('/hello')
+        self.assertIn('Hello, World!', greeting.data.decode('utf-8'))
 
 
     def test_second_status_code(self):
@@ -22,8 +22,8 @@ class TestHelloWorld(unittest.TestCase):
 
 
     def test_second_greeting_message(self):
-        rv = self.app.get('/test')
-        self.assertIn('Welcome to Circleci', rv.data.decode('utf-8'))
+        greeting = self.app.get('/test')
+        self.assertIn('Welcome to Circleci', greeting.data.decode('utf-8'))
         
 
 if __name__ == '__main__':
