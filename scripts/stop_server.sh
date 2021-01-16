@@ -1,6 +1,4 @@
 #!/bin/bash
-isExistApp = $(ps -ef | grep 'python3 hello_world.py')
-if [[ -n  $isExistApp ]]; then
-    sudo kill $(lsof -t -i:80)     
-fi
+DESTROY=$(pgrep python3)
+sudo kill -9 ${DESTROY}
 
