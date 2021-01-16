@@ -22,9 +22,8 @@ class TestHelloWorld(unittest.TestCase):
 
 
     def test_second_greeting_message(self):
-        self.app.get('/test')
-        self.assert_template_used('page2.html')
-        self.assert_context("Welcome to Circleci")
+        rv = self.app.get('/test')
+        self.assertIn('Welcome to Circleci', rv.data)
         
 
 if __name__ == '__main__':
