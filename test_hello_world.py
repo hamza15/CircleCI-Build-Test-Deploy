@@ -32,7 +32,7 @@ class TestHelloWorld(unittest.TestCase):
 
     def test_second_greeting_message(self):
         greeting = self.app.get('/test2')
-        self.assertIn('Test', greeting.data.decode('utf-8'))
+        self.assertIn('Test page', greeting.data.decode('utf-8'))
         
 
 if __name__ == '__main__':
