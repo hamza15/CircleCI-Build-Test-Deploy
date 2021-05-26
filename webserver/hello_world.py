@@ -10,7 +10,7 @@ def helloIndex():
 def test():
     return render_template("page2.html")
 
-@app.route('/test2')
+@app.route('/page')
 def test():
     return render_template("page3.html")
 
