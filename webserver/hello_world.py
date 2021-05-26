@@ -11,7 +11,7 @@ def test():
     return render_template("page2.html")
 
 @app.route('/page')
-def test():
+def deploy():
     return render_template("page3.html")
 
 if __name__ == '__main__':
