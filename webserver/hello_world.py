@@ -10,5 +10,9 @@ def helloIndex():
 def test():
     return render_template("page2.html")
 
+@app.route('/test2')
+def test():
+    return render_template("page3.html")
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port= 80)
