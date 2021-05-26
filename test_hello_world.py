@@ -26,12 +26,12 @@ class TestHelloWorld(unittest.TestCase):
         self.assertIn('Welcome to Circleci', greeting.data.decode('utf-8'))
         
     def test_second_status_code(self):
-        response = self.app.get('/test2')
+        response = self.app.get('/page')
         self.assertEqual(response.status_code, 200)
 
 
     def test_second_greeting_message(self):
-        greeting = self.app.get('/test2')
+        greeting = self.app.get('/page')
         self.assertIn('Test page', greeting.data.decode('utf-8'))
         
 
