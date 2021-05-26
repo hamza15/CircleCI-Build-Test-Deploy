@@ -34,8 +34,7 @@ jobs:
             pip3 install awscli --upgrade --user
             sudo killall -9 apt-get || true && sudo apt-get update && sudo apt-get install -y zip
             zip -r deployment.$(date +%y%m%d_%H%M).zip *
-            aws s3 cp deployment.$(date +%y%m%d_%H%M).zip s3://benchsci-test/
-            aws deploy create-deployment --ignore-application-stop-failures --file-exists-behavior OVERWRITE --application-name interview --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name interview --s3-location bucket=benchsci-test,key=deployment.$(date +%y%m%d_%H%M).zip,bundleType=zip
+            ls
             ls
             cd webserver
             pwd
