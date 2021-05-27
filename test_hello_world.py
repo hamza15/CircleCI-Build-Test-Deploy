@@ -25,6 +25,15 @@ class TestHelloWorld(unittest.TestCase):
         greeting = self.app.get('/test')
         self.assertIn('Welcome to Circleci', greeting.data.decode('utf-8'))
         
+    def test_third_status_code(self):
+        response = self.app.get('/page3')
+        self.assertEqual(response.status_code, 200)
+
+
+    def test_third_greeting_message(self):
+        greeting = self.app.get('/page3')
+        self.assertIn('Test page', greeting.data.decode('utf-8'))
+        
 
 if __name__ == '__main__':
     unittest.main()
