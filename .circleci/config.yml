@@ -23,6 +23,20 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
+  run_second_test:
+    docker:
+    - image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - run:
+          name: Install Python Dependencies
+          command: |
+            echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
+            pip install --user -r webserver/requirements.txt
+      - run:
+          name: Run Unit Tests Again
+          command: |
+            pytest
   deploy:
     docker:
       - image: circleci/python:3.7.4
@@ -35,6 +49,7 @@ jobs:
             sudo killall -9 apt-get || true && sudo apt-get update && sudo apt-get install -y zip
             zip -r deployment.$(date +%y%m%d_%H%M).zip *
             ls
+            ls
             cd webserver
             pwd
             
@@ -42,8 +57,13 @@ workflows:
   build_test:
     jobs:
       - run_tests
+      - run_second_test
       - deploy:
            requires:
              - run_tests # Only run deploy job once the build job has completed
+             - run_second_test
+           filters:
+             branches:
+               only: master
       
       

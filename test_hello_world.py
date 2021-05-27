@@ -27,6 +27,7 @@ class TestHelloWorld(unittest.TestCase):
         
     def test_third_status_code(self):
         response = self.app.get('/page3')
+
         self.assertEqual(response.status_code, 200)
 
 
