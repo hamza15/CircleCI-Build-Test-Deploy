@@ -10,8 +10,10 @@ def helloIndex():
 def test():
     return render_template("page2.html")
 
-@app.route('/page')
-def deploy():
+
+@app.route('/page3')
+def testPage():
+
     return render_template("page3.html")
 
 if __name__ == '__main__':
